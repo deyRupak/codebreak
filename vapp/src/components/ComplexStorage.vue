@@ -1,5 +1,8 @@
 <template>
     <div>
+      <div id="priya">
+      <drizzle-account units="Ether" :precision="2" />
+      </div>
       <drizzle-contract
         contractName="person"
         method="count"
@@ -18,11 +21,12 @@
           <input v-model.number="damage" type="number" placeholder="damage" class="form-control" min="1" max="10" ><br>
           </div>
           <v-btn @click.prevent="onSubmit" rounded color="primary" dark>Submit</v-btn>
+
         </form>
       <br><br><br>
-      <v-btn @click.prevent="onClick" rounded color="primary" dark>Generate QR</v-btn>
+      <v-btn @click.prevent="onClick" @click="add()" rounded color="primary" dark>Generate QR</v-btn>
           <br><br>
-          <div> <qrcode-vue :value="name" v-if="qwer" :size="size" level="H" id="asdfasdf"></qrcode-vue></div>
+          <div> <qrcode-vue :value="a" v-if="qwer" :size="size" level="H" id="asdfasdf"></qrcode-vue></div>
           <br>
           <v-btn @click="printthis"  v-if="qwer" rounded color="primary" dark>Print</v-btn>
 
@@ -33,6 +37,8 @@
 
 <script>
 
+
+
 import QrcodeVue from 'qrcode.vue';
 import { mapGetters } from 'vuex';
 export default {
@@ -42,7 +48,13 @@ export default {
     ...mapGetters('drizzle', ['drizzleInstance']),
   },
   methods: {
+    add(){
+     var value= document.getElementById("priya").textContent.slice(0,42);
+     this.a=value;
+console.log(value);
+    },
     onSubmit() {
+
       this.drizzleInstance.contracts['person'].methods['adddetails'].cacheSend(this.name,this.surname,this.gender,this.damage)
     },
     onClick() {
@@ -58,7 +70,9 @@ export default {
     QrcodeVue
   },  
   data() {
+
     return {
+      a:'',
       qwer: false,
       size: 720,
       name: '',

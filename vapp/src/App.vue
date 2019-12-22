@@ -1,5 +1,7 @@
 <template>
   <div v-if="isDrizzleInitialized" id="app">
+    <div class="highlight">
+    <h1>QUICKID</h1></div>
     <router-view/>
     <div v-if="qwer"> <qrcode-vue :value="qwer" :size="size" level="H"></qrcode-vue></div>
   </div>
@@ -43,5 +45,13 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+.highlight{
+color: aliceblue;
+background:rgb(158, 154, 154);
+margin-top: -50px;
+margin-bottom: 50px;
+
 }
 </style>

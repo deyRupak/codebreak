@@ -1,12 +1,22 @@
 <template>
   <div v-if="isDrizzleInitialized">
-    <ul>
-        <li v-for="acm in accs">
-        {{acm.ac}}
-        </li>
-    </ul>
+   <v-simple-table light class="table">
+    <template v-slot:default>
+      <thead>
+        <tr>
+          <th class="text-center">ADDRESS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="item in desserts" :key="item.name">
+          <router-link :to="{name: 'ComplexStorage'}">
+          <td>{{ item.name }}</td>
+          </router-link>
+        </tr>
+      </tbody>
+    </template>
+  </v-simple-table>
   </div>
-
   <div v-else>Loading...</div>
 </template>
 
@@ -18,21 +28,29 @@ export default {
   computed: mapGetters('drizzle', ['isDrizzleInitialized']),
   data (){
       return{
-          accs: [
-              {ac: '0x3fbee2c74f999b987459a740319099528d6b7778'},
-              {ac: '0xa98cf4574282c43f0b9f3080e4c4e38491058bec'},
-              {ac: '0xb5695f1cb135b571f50efddc90274ed39d09bb10'},
-              {ac: '0x503025020ee31d41139322338705b60f53293462'},
-              {ac: '0x6090e82f35ece43ceb93a3547f52207ba8379af5'},
-              {ac: '0x35316d278659d375d4bdf476f471764cc41ef470'},
-              {ac: '0x3f9b5d4120875619c7830627a15c4713f9658cd1'},
-              {ac: '0xfc59649e84b09267fe09e00d2ee58869a4677697'},
-              {ac: '0x5c9564decca2c133d81872ad7d061b9c0af173a8'},
-              {ac: '0xb37b383708369699ba0d35f2183ddf39c750de4b'},
+          desserts: [
+              {name: '0xbcB65c5D9326D5a238E83CdaA787FA34F11fF501'},
+              {name: '0x5b87b1034dCEbf7ab4A85E4fC591fEcf5072Ab0E'},
+              {name: '0xA786dE0F4638c13c4034F365e00C2352897106c4'},
+              {name: '0xA786dE0F4638c13c4034F365e00C2352897106c4'},
+              {name: '0x6a2004975273c9675c558B1ebdfdDd24F042F03a'},
+              {name: '0x45A2ac8540fB808069A55E96cB942F241140A90a'},
+              {name: '0x69951F580aBb72d66B50A7eA822A09BF0A976620'},
+              {name: '0x0836363EF9dBCEe4bf83136d6009ec364f09905E'},
+              {name: '0xEFEa667c04779109b1c3adF22e6500455034930C'},
+              {name: '0xD4659f0d70b7674bA559E595b3285Bb14f235a11'},
             ]
       }
   }
 }
 </script>
 
-<style></style>
+<style>
+.table{
+
+
+}
+
+
+
+</style>

@@ -3,6 +3,8 @@ import Router from 'vue-router'
 import ComplexStorage from '@/components/ComplexStorage'
 import SimpleStorage from '@/components/SimpleStorage'
 import TutorialToken from '@/components/TutorialToken'
+import govt from '@/components/govt'
+
 import Welcome from '@/components/Welcome'
 
 
@@ -30,6 +32,11 @@ export default new Router({
       path:'/asd',
       name: 'ComplexStorage',
       component: ComplexStorage
+    },
+    {
+      path:'/govt',
+      name: 'govt',
+      component: govt
     }
   ]
 })
