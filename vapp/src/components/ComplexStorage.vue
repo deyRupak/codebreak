@@ -20,9 +20,12 @@
           <v-btn @click.prevent="onSubmit" rounded color="primary" dark>Submit</v-btn>
         </form>
       <br><br><br>
-      <v-btn @click.prevent="onClick" rounded color="primary" dark>Check</v-btn>
+      <v-btn @click.prevent="onClick" rounded color="primary" dark>Generate QR</v-btn>
           <br><br>
-          <div> <qrcode-vue :value="ashdghgjhjhg" v-if="qwer" :size="size" level="H"></qrcode-vue></div>  
+          <div> <qrcode-vue :value="name" v-if="qwer" :size="size" level="H" id="asdfasdf"></qrcode-vue></div>
+          <br>
+          <v-btn @click="printthis"  v-if="qwer" rounded color="primary" dark>Print</v-btn>
+
       <div>
       </div> 
     </div>
@@ -45,6 +48,10 @@ export default {
     onClick() {
         this.qwer="true";
         console.log('here')
+    },
+    printthis(){
+  window.print();
+
     }
   },
   components: {
@@ -52,7 +59,7 @@ export default {
   },  
   data() {
     return {
-      qwer: 'false',
+      qwer: false,
       size: 720,
       name: '',
       surname: '',
@@ -134,3 +141,4 @@ div.flex-container > div {
   text-align: center; 
   }
 </style>
+
